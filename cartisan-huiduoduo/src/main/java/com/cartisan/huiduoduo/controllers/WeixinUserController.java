@@ -47,7 +47,7 @@ public class WeixinUserController {
         log.info("SessionCode：" + sessionCode);
         final RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new FastJsonHttpMessageConverter());
-        final String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxaa496b8f36ca4d99&secret=30ec25053da7263619e521afb5a1f1f4&js_code="
+        final String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxe24107d9607416ab&secret=89a79b9c88475ab099c34db99b2d2eee&js_code="
                 + sessionCode + "&grant_type=authorization_code";
         final JSONObject loginResult = restTemplate.getForObject(
                 url, JSONObject.class);
@@ -63,7 +63,7 @@ public class WeixinUserController {
     @PutMapping("/fillUserInfo")
     public GenericResponse<WeiXinUserDto> fillUserInfo(
             @ApiParam(value = "微信用户信息加密数据", required = true) @Validated @RequestBody WeiXinEncryptedDataParam weiXinEncryptedDataParam) {
-        final String userDataJsonString = WXCore.decrypt("wxaa496b8f36ca4d99", weiXinEncryptedDataParam.getEncryptedData(),
+        final String userDataJsonString = WXCore.decrypt("wxe24107d9607416ab", weiXinEncryptedDataParam.getEncryptedData(),
                 weiXinEncryptedDataParam.getSessionKey(), weiXinEncryptedDataParam.getIv());
         log.info(userDataJsonString);
         final JSONObject weiXinUserJson = JSONObject.parseObject(userDataJsonString);

@@ -2,7 +2,7 @@ package com.cartisan.huiduoduo.services;
 
 import com.cartisan.common.dtos.PageResult;
 import com.cartisan.common.exceptions.CartisanException;
-import com.cartisan.common.utils.IdWorker;
+import com.cartisan.common.utils.SnowflakeIdWorker;
 import com.cartisan.huiduoduo.constants.CouponCodeMessage;
 import com.cartisan.huiduoduo.domains.Referrer;
 import com.cartisan.huiduoduo.domains.WeiXinUser;
@@ -38,7 +38,7 @@ public class ReferrerService {
     private CouponRepository couponRepository;
 
     @Autowired
-    private IdWorker idWorker;
+    private SnowflakeIdWorker idWorker;
 
     public PageResult<ReferrerDto> searchReferrers(String nickName, Integer currentPage, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(currentPage - 1, pageSize);

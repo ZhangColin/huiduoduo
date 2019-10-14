@@ -1,7 +1,7 @@
 package com.cartisan.huiduoduo.services;
 
 import com.cartisan.common.exceptions.CartisanException;
-import com.cartisan.common.utils.IdWorker;
+import com.cartisan.common.utils.SnowflakeIdWorker;
 import com.cartisan.huiduoduo.constants.CouponCodeMessage;
 import com.cartisan.huiduoduo.domains.Category;
 import com.cartisan.huiduoduo.dtos.CategoryDto;
@@ -26,7 +26,7 @@ public class CategoryService {
     private CategoryRepository repository;
 
     @Autowired
-    private IdWorker idWorker;
+    private SnowflakeIdWorker idWorker;
 
     public List<CategoryDto> getCategories() {
         final List<Category> categories = repository.findAll(new Sort(Sort.Direction.ASC, "sort"));

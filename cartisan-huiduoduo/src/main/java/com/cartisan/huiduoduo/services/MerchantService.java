@@ -2,7 +2,7 @@ package com.cartisan.huiduoduo.services;
 
 import com.cartisan.common.dtos.PageResult;
 import com.cartisan.common.exceptions.CartisanException;
-import com.cartisan.common.utils.IdWorker;
+import com.cartisan.common.utils.SnowflakeIdWorker;
 import com.cartisan.huiduoduo.constants.CouponCodeMessage;
 import com.cartisan.huiduoduo.domains.Merchant;
 import com.cartisan.huiduoduo.dtos.MerchantDto;
@@ -29,7 +29,7 @@ public class MerchantService {
     private MerchantRepository repository;
 
     @Autowired
-    private IdWorker idWorker;
+    private SnowflakeIdWorker idWorker;
 
     public PageResult<MerchantDto> searchMerchants(String name, Integer currentPage, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(currentPage - 1, pageSize);

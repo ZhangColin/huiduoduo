@@ -1,7 +1,7 @@
 package com.cartisan.huiduoduo.services;
 
 import com.cartisan.common.exceptions.CartisanException;
-import com.cartisan.common.utils.IdWorker;
+import com.cartisan.common.utils.SnowflakeIdWorker;
 import com.cartisan.huiduoduo.constants.CouponCodeMessage;
 import com.cartisan.huiduoduo.domains.Store;
 import com.cartisan.huiduoduo.dtos.StoreDto;
@@ -26,7 +26,7 @@ public class StoreService {
     private StoreRepository repository;
 
     @Autowired
-    private IdWorker idWorker;
+    private SnowflakeIdWorker idWorker;
 
     public List<StoreDto> getStores(Long merchantId) {
         final List<Store> categories = repository.findByMerchantId(merchantId, new Sort(Sort.Direction.ASC, "sort"));

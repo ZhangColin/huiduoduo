@@ -1,7 +1,7 @@
 package com.cartisan.huiduoduo.services;
 
 import com.cartisan.common.exceptions.CartisanException;
-import com.cartisan.common.utils.IdWorker;
+import com.cartisan.common.utils.SnowflakeIdWorker;
 import com.cartisan.huiduoduo.constants.CouponCodeMessage;
 import com.cartisan.huiduoduo.domains.Coupon;
 import com.cartisan.huiduoduo.domains.CouponSchema;
@@ -37,7 +37,7 @@ public class CouponService {
     private MerchantRepository merchantRepository;
 
     @Autowired
-    private IdWorker idWorker;
+    private SnowflakeIdWorker idWorker;
 
     public List<CouponSummaryInfo> getCanGetCoupons(Long userId, Long categoryId) {
         final List<CouponSchema> schemas = couponSchemaRepository.findAll((Specification<CouponSchema>) (root, query, criteriaBuilder) ->
