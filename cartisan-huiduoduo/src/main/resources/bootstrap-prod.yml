@@ -1,12 +1,3 @@
-#spring:
-#  cloud:
-#    config:
-#      enabled: false
-#      discovery:
-#        enabled: true
-#        service-id: config
-#      profile: prod
-
 eureka:
   client:
     service-url:
@@ -14,4 +5,4 @@ eureka:
 
 logging:
   path: /var/log/cartisan/huiduoduo/
-  file: cartisan-huiduoduo
+  file: huiduoduo

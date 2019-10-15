@@ -31,6 +31,3 @@ cartisan:
     enable: false
     secret: cartisan
 
-logging:
-  path: /var/log/cartisan/huiduoduo/
-  file: huiduoduo
