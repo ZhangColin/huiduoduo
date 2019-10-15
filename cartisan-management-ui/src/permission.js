@@ -23,7 +23,7 @@ router.beforeEach(async(to, from, next) => {
   if (hasToken) {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
-      next({ path: '/' })
+      next({ path: '/huiduoduo/categories/categoryList' })
       NProgress.done()
     } else {
       // determine whether the user has obtained his permission roles through getInfo
@@ -62,7 +62,11 @@ router.beforeEach(async(to, from, next) => {
       next()
     } else {
       // other pages that do not have permission to access are redirected to the login page.
-      next(`/login?redirect=${to.path}`)
+      let path = '/huiduoduo/categories/categoryList'
+      if (to.path !== '/') {
+        path = to.path
+      }
+      next(`/login?redirect=${path}`)
       NProgress.done()
     }
   }
